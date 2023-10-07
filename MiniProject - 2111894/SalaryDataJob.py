@@ -28,10 +28,9 @@ result_level=df[['experience_level']].value_counts(ascending=False)
 #Tổng số lượng các kích thước các công ty
 result_company_size=df[['company_size']].value_counts()
 #Top 10 công việc phổ biến
-top10_job=df[['job_title']].value_counts().iloc[-10:]
+top10_job=df[['job_title']].value_counts(ascending=True).iloc[-10:]
 #Tỉ lệ làm việc từ xa
 remote = df[['remote_ratio']].value_counts()
-
 #Lương của từng cấp bậc cao nhất
 level_salary=df.groupby('experience_level')['salary_in_usd'].max().sort_values(ascending=False)
 #Trung bình lương của từng công việc
@@ -49,7 +48,7 @@ plt.figure('Biểu đồ tỉ lệ của hình thức làm việc',figsize=(10,6
 type = np.array(['Full Time','Part Time','Contract','Freelance'])
 result = result_type
 colors = ['#8250C4','#5ECBC8','#438FFF','#FF977E']
-plt.title('Tỉ lệ giữa các hình thức công việc 2020 - 2022',fontsize=13)
+plt.title('Tỉ lệ giữa các hình thức công việc',fontsize=13)
 plt.pie(result,labels=type,colors=colors)
 plt.legend(title='Type',loc='upper right',fontsize=8)
 plt.show()
