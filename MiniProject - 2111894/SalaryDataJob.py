@@ -28,7 +28,7 @@ result_level=df[['experience_level']].value_counts(ascending=False)
 #Tổng số lượng các kích thước các công ty
 result_company_size=df[['company_size']].value_counts()
 #Top 10 công việc phổ biến
-top10_job=df[['job_title']].value_counts().iloc[:10]
+top10_job=df[['job_title']].value_counts().iloc[-10:]
 #Tỉ lệ làm việc từ xa
 remote = df[['remote_ratio']].value_counts()
 
@@ -70,7 +70,7 @@ plt.show()
 
 #Biểu đồ top10 các công việc phổ biến
 plt.figure('Biểu đồ Top10 các công việc phổ biến',figsize=(15,6))
-job_title = np.array(['Data Scientist','Data Engineer','Data Analyst','Machine Learning Engineer','Research Scientist','Data Science Manager','Data Architect','Big Data Engineer','Machine Learning Scientist','Director of Data Science'])
+job_title = np.array(['Director of Data Science','Machine Learning Scientist','Big Data Engineer','Data Architect','Data Science Manager','Research Scientist','Machine Learning Engineer','Data Analyst','Data Engineer','Data Scientist'])
 top10 = top10_job
 plt.xlabel('Số lượng',fontsize=9)
 plt.xticks(fontweight='bold')
